@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway Aesthetic</title>
+    <style>
+        /* CSS Aesthetic HD Theme */
+        :root {
+            --primary: #6a5acd;
+            --secondary: #9370db;
+            --accent: #ff69b4;
+            --bg: #0f0e17;
+            --text: #fffffe;
+            --card-bg: #161629;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(106, 90, 205, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 105, 180, 0.15) 0%, transparent 50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(106, 90, 205, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        
+        .payment-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .payment-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            width: 100%;
+            max-width: 350px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .payment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .payment-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(106, 90, 205, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { left: -50%; }
+            100% { left: 150%; }
+        }
+        
+        .payment-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 12px;
+        }
+        
+        .payment-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .payment-number {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .copy-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: var(--accent);
+        }
+        
+        .instructions {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        
+        .dana-card {
+            border-top: 3px solid #00a3e0;
+        }
+        
+        .gopay-card {
+            border-top: 3px solid #00aa13;
+        }
+        
+        .qr-placeholder {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .payment-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .payment-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Payment Gateway</h1>
+            <p class="subtitle">Silahkan pilih metode pembayaran yang tersedia</p>
+        </header>
+        
+        <div class="payment-cards">
+            <!-- DANA Card -->
+            <div class="payment-card dana-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="DANA Logo" class="payment-logo">
+                <h2 class="payment-title">DANA</h2>
+                
+                <div class="qr-placeholder">
+                    QR Code (jika ada)
+                </div>
+                
+                <div class="payment-number">
+                    <span id="dana-number">0895422992256</span>
+                    <button class="copy-btn" onclick="copyToClipboard('dana-number')">Salin</button>
+                </div>
+                
+                <div class="instructions">
+                    <p><strong>Cara pembayaran:</strong></p>
+                    <ol>
+                        <li>Buka aplikasi DANA</li>
+                        <li>Pilih "Kirim"</li>
+                        <li>Masukkan nomor di atas</li>
+                        <li>Masukkan nominal transfer</li>
+                        <li>Konfirmasi pembayaran</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- GOPAY Card -->
+            <div class="payment-card gopay-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg" alt="GOPAY Logo" class="payment-logo">
+                <h2 class="payment-title">GOPAY</h2>
+                
+                <div class="qr-placeholder">
+                    QR Code (jika ada)
+                </div>
+                
+                <div class="payment-number">
+                    <span id="gopay-number">0895422992256</span>
+                    <button class="copy-btn" onclick="copyToClipboard('gopay-number')">Salin</button>
+                </div>
+                
+                <div class="instructions">
+                    <p><strong>Cara pembayaran:</strong></p>
+                    <ol>
+                        <li>Buka aplikasi Gojek</li>
+                        <li>Pilih "GOPAY"</li>
+                        <li>Pilih "Kirim"</li>
+                        <li>Masukkan nomor di atas</li>
+                        <li>Masukkan nominal transfer</li>
+                        <li>Konfirmasi pembayaran</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        &copy; 2023 Payment Gateway | Terima kasih atas pembayarannya
+    </footer>
+    
+    <script>
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.innerText;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = element.innerText;
+                element.innerText = "Tersalin!";
+                
+                setTimeout(() => {
+                    element.innerText = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Gagal menyalin teks: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
